@@ -4,5 +4,6 @@ from django.urls import path,include
 from.views import *
 
 urlpatterns = [
-    path('',company)
+    path('',company),
+    path('post/',demos)
 ]
