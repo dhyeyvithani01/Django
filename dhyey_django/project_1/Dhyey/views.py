@@ -4,9 +4,11 @@ from rest_framework.response import Response
 from .models import *
 from .serializers import *
 
-@api_view(["GET"])
-def company(request):
-    return Response({'status':200,'message':'right'})
+@api_view(['Get'])
+def School(request):
+    obj=Student.objects.all()
+    serializer=Studentserializers(obj,many=True)
+    return Response({'status':200,'message':'right','payload':serializer.data})
 
 
 
