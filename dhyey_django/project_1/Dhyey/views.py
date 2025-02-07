@@ -15,7 +15,6 @@ def School(request):
 @api_view(['POST'])
 def demos(request):
     data = request.data
-    serializer = Studentserializers(data = request.data)
     serializer = Teacherserializers(data = request.data)
     if not serializer.is_valid():
         return Response({'status' : 201,'massage' : 'wrong'})
