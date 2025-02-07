@@ -4,3 +4,8 @@ class Student(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField(default=30)
     email_id = models.CharField(max_length=30,default="")
+    
+class Teacher(models.Model):
+    name = models.CharField(max_length=100)
+    subjects = models.CharField(max_length=20)
+    
