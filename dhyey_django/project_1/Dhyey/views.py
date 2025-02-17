@@ -12,6 +12,15 @@ def School(request):
 
 
 
+
+@api_view(['Get'])
+def Schooll(request):
+    obj=Teacher.objects.all()
+    serializer=Teacherserializers(obj,many=True)
+    return Response({'status':200,'message':'right','payload':serializer.data})
+
+
+
 @api_view(['POST'])
 def demos(request):
     data = request.data
