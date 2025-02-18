@@ -5,6 +5,7 @@ from.views import *
 
 urlpatterns = [
     path('',School),
-    path('get/',Schooll),
-    path('post/',demos)
+    # path('get/',Schooll),
+    # path('post/',demos),
+    path('put/<id>/',putt)
 ]
