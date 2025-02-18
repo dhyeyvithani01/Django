@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import *
+import re
 
 class Studentserializers(serializers.ModelSerializer):
     class Meta:
@@ -18,10 +19,10 @@ class Studentserializers(serializers.ModelSerializer):
         
         #Email validation
         email=data.get("Email_id")
-        if data ["Email_id"] == '@gmail.com':
-            raise serializers.ValidationError("Email Is Not Valid")
+        # if data ["Email_id"] == '@gmail.com':
+        #     raise serializers.ValidationError("Email Is Not Valid")
         
-        elif email[0].isdigit():
+        if email[0].isdigit():
             raise serializers.ValidationError("Email Is Not Valid")
         
         elif not email.islower():
@@ -29,6 +30,26 @@ class Studentserializers(serializers.ModelSerializer):
               
         elif not email.endswith('@gmail.com'):
             raise serializers.ValidationError("Email Is Not Valid")
+        
+        #mobile no validation
+        mobile = data.get("Mobile_no")
+        if  len(mobile)!=10 or not mobile.isdigit():
+            raise serializers.ValidationError("Mobile number is not valid")
+        
+        #Password validation
+        password =data.get("Password")
+        if len(password) < 8:
+            raise serializers.ValidationError("Password must be at least 8 characters long")
+
+        elif not any(char.isdigit() for char in password):
+            raise serializers.ValidationError("Password must contain at least one digit")
+        elif not any(char.isupper() for char in password):
+            raise serializers.ValidationError("Password must contain at least one uppercase letter")
+        elif not any(char.islower() for char in password):
+            raise serializers.ValidationError("Password must contain at least one lowercase letter")
+        elif not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+            raise serializers.ValidationError("Password must contain at least one special character")
+            
         
         return data
         

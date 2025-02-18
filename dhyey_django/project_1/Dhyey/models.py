@@ -6,6 +6,8 @@ class Student(models.Model):
     Email_id = models.EmailField(max_length=30)
     Mobile_no = models.CharField(max_length=10)
     Address = models.TextField(max_length=100)
+    Password =models.CharField(max_length=100)
+    Confirm_password =models.CharField(max_length=100)
 
 
 # class Teacher(models.Model):
