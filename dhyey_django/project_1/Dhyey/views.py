@@ -36,7 +36,7 @@ def School(request):
 @api_view(['PUT'])
 def putt (requst,id):
     try:
-        obj=Student.object.get(id=id)
+        obj=Student.objects.get(id=id)
         serializer=Studentserializers(obj,data=requst.data)
         if not serializer.is_valid():
             return Response({'status': 201, 'message':'WRONG'})
