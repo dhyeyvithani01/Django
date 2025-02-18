@@ -40,16 +40,18 @@ class Studentserializers(serializers.ModelSerializer):
         password =data.get("Password")
         if len(password) < 8:
             raise serializers.ValidationError("Password must be at least 8 characters long")
-
         elif not any(char.isdigit() for char in password):
             raise serializers.ValidationError("Password must contain at least one digit")
         elif not any(char.isupper() for char in password):
             raise serializers.ValidationError("Password must contain at least one uppercase letter")
         elif not any(char.islower() for char in password):
             raise serializers.ValidationError("Password must contain at least one lowercase letter")
-        elif not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+        elif not re.search(r'[!@#$%^&*(),.?":{}|<>_]', password):
             raise serializers.ValidationError("Password must contain at least one special character")
-            
+        
+        #Confirm password validation
+        if data['Password'] != data["Confirm_password"]:
+            raise serializers.ValidationError('Password Is Wrong')
         
         return data
         
