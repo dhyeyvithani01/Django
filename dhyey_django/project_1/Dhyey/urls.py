@@ -7,5 +7,7 @@ urlpatterns = [
     path('',School),
     # path('get/',Schooll),
     # path('post/',demos),
-    path('put/<id>/',putt)
+    path('put/<id>/',putt),
+    path('patch/<id>/',patchh),
+    path('delete/<id>/',deletee)
 ]
