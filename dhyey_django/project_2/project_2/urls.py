@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Dhyey import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('get/<int:var>/',views.gett),
@@ -25,5 +27,4 @@ urlpatterns = [
     # path('get/', my_get_view),
     # path('post/',my_get_view),
     # path('api/list/', my_list_view, name='list'),
-    path('admin/', admin.site.urls),
 ]
