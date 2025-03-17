@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path
 
 from Dhyey import views
+from Dhyey.views import my_get_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('get/<int:var>/',views.gett),
-    path('get/',views.gettt),
+    path('get1/<int:var>/',views.gett),
+    path('get1/',views.gettt),
     # path('post/',views.post),
-    # path('get/', my_get_view),
-    # path('post/',my_get_view),
+    path('get/', my_get_view),
+    path('post/',my_get_view),
     # path('api/list/', my_list_view, name='list'),
 ]
