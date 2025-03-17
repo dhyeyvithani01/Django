@@ -26,18 +26,18 @@ def gettt (request):
 
         
          
-# @api_view(['GET', 'POST'])
-# def my_get_view(request):
-#     if request.method == 'GET':
-#         obj = student.objects.all()
-#         serializer = studentserializers(obj,many =True)
-#         return JsonResponse(serializer.data,status=200,safe=False)
+@api_view(['GET', 'POST'])
+def my_get_view(request):
+    if request.method == 'GET':
+        obj = student.objects.all()
+        serializer = studentserializers(obj,many =True)
+        return JsonResponse(serializer.data,status=200,safe=False)
     
-#     elif request.method == 'POST':
-#         data =request.data 
-#         serializer = studentserializers(data =request.data)
-#         if not serializer.is_valid():
-#             return Response(serializer.errors,status = 400,safe=False)
-#         serializer.save()
-#         return Response(serializer.data,status=201,safe= False)
+    elif request.method == 'POST':
+        data =request.data 
+        serializer = studentserializers(data =request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors,status = 400,safe=False)
+        serializer.save()
+        return Response(serializer.data,status=201,safe= False)
  
