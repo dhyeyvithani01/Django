@@ -1,5 +1,5 @@
 """
-URL configuration for project_2 project.
+URL configuration for project_3 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -17,15 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Dhyey import views
-from Dhyey.views import my_get_view
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('get/<int:var>/',views.gett),
-    path('get/',views.gettt),
-    # path('post/',views.post),
-    # path('get/', my_get_view),
-    # path('post/',my_get_view),
-    # path('api/list/', my_list_view, name='list'),
 ]
